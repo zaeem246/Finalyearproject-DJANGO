@@ -27,7 +27,7 @@ def add_cart(request, product_id):
     current_user = request.user
     product = Product.objects.get(id=product_id) # get the product 
     # if user is authenticated
-    if current_user.is_authenticated:
+    if current_user.is_authenticated:         
         product_variation = []
         if request.method == 'POST':
             for item in request.POST:
@@ -46,7 +46,7 @@ def add_cart(request, product_id):
         # existing variations -> coming from database
             # current variations -> product_variation
             # item_id -> database
-        is_cart_item_exists  =CartItem.objects.filter(product=product, user=current_user).exists()
+        is_cart_item_exists = CartItem.objects.filter(product=product, user=current_user).exists()
         if is_cart_item_exists:
             cart_item = CartItem.objects.filter(product=product, user=current_user) 
             ex_var_list = []
@@ -86,8 +86,7 @@ def add_cart(request, product_id):
                 cart_item.variations.clear()
                 cart_item.variations.add(*product_variation)
 
-            cart_item.save()
-        
+            cart_item.save()  
         return redirect('cart')
 # if the user is not authenticated
     else:
@@ -205,8 +204,7 @@ def cart(request, total=0, quantity=0, cart_items=None):
         grand_total = 0
         if request.user.is_authenticated:
             cart_items = CartItem.objects.filter(user=request.user, is_active=True)
-
-
+            
         else:
             cart = Cart.objects.get(cart_id=_cart_id(request))
             cart_items = CartItem.objects.filter(cart=cart, is_active=True)
