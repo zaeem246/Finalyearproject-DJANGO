@@ -38,11 +38,10 @@
 				<div class="col-xl-4 col-lg-4 mb-50">
 					<div class="footer-widget">
 						<div class="footer-logo">
-							<a href="#"><img src="" class="img-fluid" alt="logo"></a>
+							<img src="{% static '/images/banners/237.svg'%}" class="img-fluid" alt="logo">
 						</div>
 						<div class="footer-text">
-							<p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing
-							elit,Lorem ipsum dolor sit amet.</p>
+							<p></p>
 						</div>
 						<div class="footer-social-icon">
 							<span>Follow us</span>
@@ -60,18 +59,15 @@
 						<ul>
 							<li><a href="#">Home</a></li>
 							<li><a href="#">about</a></li>
-							<li><a href="#">services</a></li>
+							
 							<li><a href="#">portfolio</a></li>
 							<li><a href="#">Contact</a></li>
 							<li><a href="#">About us</a></li>
-							<li><a href="#">Our Services</a></li>
-							<li><a href="#">Expert Team</a></li>
-							<li><a href="#">Contact us</a></li>
-							<li><a href="#">Latest News</a></li>
+						
 						</ul>
 					</div>
 				</div>
-				<div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+				<!-- <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
 					<div class="footer-widget">
 						<div class="footer-widget-heading">
 							<h3>Subscribe</h3>
@@ -86,7 +82,7 @@
 							</form>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -95,8 +91,7 @@
 			<div class="row">
 				<div class="col-xl-6 col-lg-6 text-center text-lg-left">
 					<div class="copyright-text">
-						<!-- <p>Copyright &copy; 2018, All Right Reserved <a href="https://codepen.io/anupkumar92/">Anup</a></p> -->
-					</div>
+								</div>
 				</div>
 				<div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
 					<div class="footer-menu">
@@ -113,14 +108,22 @@
 		</div>
 	</div>
 </footer>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('.thumb a').click(function(e){
+			e.preventDefault();
+			$('.mainImage img').attr('src',$(this).attr("href"));
+		})
+	})
+</script>
 <style>
 	ul {
     margin: 0px;
     padding: 0px;
 }
 .footer-section {
-  background: #151414;
+  background: #050b1a;
   position: relative;
 }
 .footer-cta {
